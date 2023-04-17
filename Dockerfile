@@ -1,4 +1,4 @@
-FROM node:17-alpine AS BuildBot
+FROM node:18-alpine AS BuildBot
 WORKDIR /usr/src/bot
 COPY package.json .
 COPY yarn.lock .
@@ -7,7 +7,7 @@ RUN yarn install
 COPY . .
 RUN yarn run build
 
-FROM node:17-alpine
+FROM node:18-alpine
 WORKDIR /usr/src/bot
 COPY package.json .
 COPY yarn.lock .
